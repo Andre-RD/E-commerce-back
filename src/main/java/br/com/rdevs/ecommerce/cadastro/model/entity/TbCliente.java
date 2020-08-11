@@ -3,7 +3,8 @@ package br.com.rdevs.ecommerce.cadastro.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+
 
 @Entity
 @Table(name = "TB_CLIENTE")
@@ -12,24 +13,25 @@ public class TbCliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_CLIENTE")
     private Long idCliente;
-    @Column
+    @Column(name = "NM_CLIENTE")
     private String nmCliente;
-    @Column
+    @Column(name = "NR_CPF")
     private String nrCpf;
-    @Column
+    @Column(name = "DS_EMAIL")
     private String dsEmail;
-    @Column
+    @Column(name = "DT_CADASTRO")
     private Date dtCadastro;
-    @Column
+    @Column(name = "NR_RG")
     private String nrRg;
-    @Column
-    private Date stNasc;
-    @Column
+    @Column(name = "DT_NASC")
+    private Date dtNasc;
+    @Column(name = "DS_GENERO")
     private String dsGenero;
-    @Column
+    @Column(name = "NR_TELEFONE1")
     private String nrTelefone1;
-    @Column
+    @Column(name = "ID_CATEGORIA_CLIENTE")
     private Long idCategoriaCliente;
 
 }
