@@ -13,9 +13,15 @@ public class CadastroController {
     @Autowired
     private ClienteService service;
 
-    @GetMapping("/cadastro")
+
+    @GetMapping("/listaCadastros")
     public ResponseEntity buscarCadastros(){
         return ResponseEntity.ok().body(service.buscarTodas());
     }
+
+
+
+
+
 
 }

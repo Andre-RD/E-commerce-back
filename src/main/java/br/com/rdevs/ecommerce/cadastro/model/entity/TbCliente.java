@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -33,5 +34,19 @@ public class TbCliente {
     private String nrTelefone1;
     @Column(name = "ID_CATEGORIA_CLIENTE")
     private Long idCategoriaCliente;
+
+    @ManyToMany
+    @JoinTable(name = "TB_ENDERECO_CLIENTE",
+            joinColumns = @JoinColumn(name = "ID_CLIENTE"),
+            inverseJoinColumns = @JoinColumn(name = "ID_ENDERECO")
+    )
+    private List<TbEndereco> enderecos;
+
+//    @ManyToOne
+//    @JoinTable(name = "TB_CARTAO_CREDITO",
+//            joinColumns = @JoinColumn(name ="ID_ClIENTE" )
+//    )
+//    private TbCartaoCredito cartaoCredito;
+
 
 }
