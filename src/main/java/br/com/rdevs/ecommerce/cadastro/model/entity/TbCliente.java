@@ -35,6 +35,7 @@ public class TbCliente {
     @Column(name = "ID_CATEGORIA_CLIENTE")
     private Long idCategoriaCliente;
 
+
     @ManyToMany
     @JoinTable(name = "TB_ENDERECO_CLIENTE",
             joinColumns = @JoinColumn(name = "ID_CLIENTE"),
@@ -42,11 +43,13 @@ public class TbCliente {
     )
     private List<TbEndereco> enderecos;
 
-//    @ManyToOne
-//    @JoinTable(name = "TB_CARTAO_CREDITO",
-//            joinColumns = @JoinColumn(name ="ID_ClIENTE" )
-//    )
-//    private TbCartaoCredito cartaoCredito;
+
+
+    @OneToMany(mappedBy = "clienteCartao", cascade = CascadeType.ALL)
+    private List<TbCartaoCredito> cartoesCredito;
+
+
+
 
 
 }

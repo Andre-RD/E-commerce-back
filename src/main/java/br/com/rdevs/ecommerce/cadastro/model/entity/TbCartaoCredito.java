@@ -1,5 +1,6 @@
 package br.com.rdevs.ecommerce.cadastro.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,8 +19,10 @@ public class TbCartaoCredito {
     @Column(name = "NM_NOME_TITULAR")
     private String nmNomeTitular;
 
-    @OneToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CLIENTE")
-    private TbCliente cliente;
+    @JsonIgnore
+    private TbCliente clienteCartao;
 
 }
