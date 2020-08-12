@@ -7,6 +7,8 @@ import br.com.rdevs.ecommerce.cadastro.model.entity.TbCartaoCredito;
 import br.com.rdevs.ecommerce.cadastro.model.entity.TbCliente;
 import br.com.rdevs.ecommerce.cadastro.model.entity.TbEndereco;
 import br.com.rdevs.ecommerce.cadastro.repository.CadastroRepository;
+import br.com.rdevs.ecommerce.cadastro.repository.CartaoRepository;
+import br.com.rdevs.ecommerce.cadastro.repository.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,12 +21,18 @@ import java.util.List;
 public class ClienteService {
 
     @Autowired
-    private CadastroRepository repository;
+    private CadastroRepository cadastroRepository;
+
+    @Autowired
+    private CartaoRepository cartaoRepository;
+
+    @Autowired
+    private EnderecoRepository enderecoRepository;
 
 
     public List<ClienteDTO> buscarTodas(){
         List<ClienteDTO> listDTO = new ArrayList<>();
-        List<TbCliente> listEntity = repository.findAll();
+        List<TbCliente> listEntity = cadastroRepository.findAll();
 
         for(TbCliente clienteEntity : listEntity){
             ClienteDTO clienteDTO = new ClienteDTO();
@@ -76,6 +84,10 @@ public class ClienteService {
     }
 
     public TbCliente inserir (ClienteDTO clienteInserido){
+        TbCartaoCredito tbCartaoCredito = cartaoRepository.findOne(clienteInserido.getCartoesCreditoDTO());
+
+        TbEndereco tbEndereco = enderecoRepository.findOne(clienteInserido.getEnderecos());
+
         TbCliente cliente = new TbCliente();
         cliente.setIdCliente(clienteInserido.getIdCliente());
         cliente.setNmCliente(clienteInserido.getNmCliente());
@@ -85,9 +97,11 @@ public class ClienteService {
         cliente.setDsGenero(clienteInserido.getDsGenero());
         cliente.setNrTelefone1(clienteInserido.getNrTelefone1());
 
+        cliente.setEnderecos(tbEndereco);
+        cliente.setCartoesCredito(tbCartaoCredito);
 
 
-        return repository.save(cliente);
+        return cadastroRepository.save(cliente);
     }
 //    public  TbCartaoCredito
 //
