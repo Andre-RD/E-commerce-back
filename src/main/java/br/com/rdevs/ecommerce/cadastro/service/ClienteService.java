@@ -44,10 +44,8 @@ public class ClienteService {
             clienteDTO.setDsGenero(clienteEntity.getDsGenero());
             clienteDTO.setNrTelefone1(clienteEntity.getNrTelefone1());
 
-
             List<EnderecoDTO> enderecoDTOS = new ArrayList<>();
             clienteDTO.setEnderecos(enderecoDTOS);
-
             for (TbEndereco endereco: clienteEntity.getEnderecos()){
                 EnderecoDTO dto = new EnderecoDTO();
                 dto.setIdEndereco(endereco.getIdEndereco());
@@ -60,7 +58,6 @@ public class ClienteService {
                 dto.setNmCompleto(endereco.getNmCompleto());
 
                 enderecoDTOS.add(dto);
-
 
             }
 
@@ -76,7 +73,6 @@ public class ClienteService {
                 cartaoCreditoDTOS.add(dtoCard);
             }
 
-
             listDTO.add(clienteDTO);
         }
 
@@ -84,11 +80,8 @@ public class ClienteService {
     }
 
     public TbCliente inserir (ClienteDTO clienteInserido){
-        TbCartaoCredito tbCartaoCredito = cartaoRepository.findOne(clienteInserido.getCartoesCreditoDTO());
-
-        TbEndereco tbEndereco = enderecoRepository.findOne(clienteInserido.getEnderecos());
-
         TbCliente cliente = new TbCliente();
+
         cliente.setIdCliente(clienteInserido.getIdCliente());
         cliente.setNmCliente(clienteInserido.getNmCliente());
         cliente.setNrCpf(clienteInserido.getNrCpf());
@@ -97,9 +90,36 @@ public class ClienteService {
         cliente.setDsGenero(clienteInserido.getDsGenero());
         cliente.setNrTelefone1(clienteInserido.getNrTelefone1());
 
-        cliente.setEnderecos(tbEndereco);
-        cliente.setCartoesCredito(tbCartaoCredito);
+        List<TbEndereco> tbEnderecos = new ArrayList<>();
+        for (EnderecoDTO enderecoDTO: clienteInserido.getEnderecos()){
+            TbEndereco endereco = new TbEndereco();
+            endereco.setIdEndereco(enderecoDTO.getIdEndereco());
+            endereco.setDsEndereco(enderecoDTO.getDsEndereco());
+            endereco.setNrEndereco(enderecoDTO.getNrEndereco());
+            endereco.setNrCep(enderecoDTO.getNrCep());
+            endereco.setDsBairro(enderecoDTO.getDsBairro());
+            endereco.setDsCidade(enderecoDTO.getDsCidade());
+            endereco.setSgEstado(enderecoDTO.getSgEstado());
+            endereco.setNmCompleto(enderecoDTO.getNmCompleto());
 
+            tbEnderecos.add(endereco);
+        }
+        cliente.setEnderecos(tbEnderecos);
+
+        List<TbCartaoCredito> tbCartaoCreditos = new ArrayList<>();
+        for (CartaoCreditoDTO cartaoCreditoDTO: clienteInserido.getCartoesCreditoDTO()){
+            TbCartaoCredito cartaoCredito = new TbCartaoCredito();
+
+            cartaoCredito.setIdCartaoCredito(cliente.getIdCliente());
+            cartaoCredito.setNrNumeroCartao(cartaoCreditoDTO.getNrNumeroCartao());
+            cartaoCredito.setNmNomeTitular(cartaoCreditoDTO.getNmNomeTitular());
+
+            cartaoCredito.setClienteCartao(cliente);
+
+            tbCartaoCreditos.add(cartaoCredito);
+
+        }
+        cliente.setCartoesCredito(tbCartaoCreditos);
 
         return cadastroRepository.save(cliente);
     }

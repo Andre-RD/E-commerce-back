@@ -1,10 +1,9 @@
 package br.com.rdevs.ecommerce.cadastro.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "TB_CARTAO_CREDITO")
@@ -22,7 +21,6 @@ public class TbCartaoCredito {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CLIENTE")
-    @JsonIgnore
     private TbCliente clienteCartao;
 
 }
