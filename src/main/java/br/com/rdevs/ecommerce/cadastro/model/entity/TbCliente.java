@@ -15,7 +15,7 @@ public class TbCliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CLIENTE")
-    private Long idCliente;
+    private Integer idCliente;
     @Column(name = "NM_CLIENTE")
     private String nmCliente;
     @Column(name = "NR_CPF")
@@ -44,9 +44,8 @@ public class TbCliente {
 
 //    @ManyToOne
 //    @JoinTable(name = "TB_CARTAO_CREDITO",
-//            joinColumns = @JoinColumn(name ="ID_ClIENTE" )
+//            joinColumns = @JoinColumn(name ="ID_CLIENTE" )
 //    )
 //    private TbCartaoCredito cartaoCredito;
-
 
 }
