@@ -1,4 +1,4 @@
-package br.com.rdevs.ecommerce.pagamentopedido.model.dto;
+package br.com.rdevs.ecommerce.pedido.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,8 +20,4 @@ public class PagamentoPedidoDTO {
     private Long nrNumeroCartao;
 
     private String nmNomeTitular;
-
-
-
-
 }

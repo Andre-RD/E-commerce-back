@@ -1,4 +1,4 @@
-package br.com.rdevs.ecommerce.pagamentopedido.repository;
+package br.com.rdevs.ecommerce.pedido.repository;
 
 import br.com.rdevs.ecommerce.pagamentopedido.model.entity.TbPedidoDesconto;
 import org.springframework.data.jpa.repository.JpaRepository;

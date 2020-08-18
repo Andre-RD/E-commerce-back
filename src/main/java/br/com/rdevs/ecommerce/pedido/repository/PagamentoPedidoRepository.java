@@ -1,6 +1,6 @@
-package br.com.rdevs.ecommerce.pagamentopedido.repository;
+package br.com.rdevs.ecommerce.pedido.repository;
 
-import br.com.rdevs.ecommerce.pagamentopedido.model.entity.TbPagamentoPedido;
+import br.com.rdevs.ecommerce.pedido.model.entity.TbPagamentoPedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

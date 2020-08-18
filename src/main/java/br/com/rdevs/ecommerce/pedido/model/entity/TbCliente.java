@@ -1,5 +1,6 @@
-package br.com.rdevs.ecommerce.cadastro.model.entity;
+package br.com.rdevs.ecommerce.pedido.model.entity;
 
+import br.com.rdevs.ecommerce.cadastro.model.entity.TbEndereco;
 import lombok.Data;
 
 import javax.persistence.*;

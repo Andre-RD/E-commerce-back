@@ -29,16 +29,10 @@ public class TbPedidoEntity {
     private Integer qtItensPedido;
 
     @ManyToOne//O item idCliente é uma FK
-    @JoinTable(name = "TB_CLIENTE",
-            joinColumns = @JoinColumn(name = "ID_PEDIDO"),
-            inverseJoinColumns = @JoinColumn(name = "ID_CLIENTE")
-    )
+    @JoinColumn(name = "ID_CLIENTE")
     private TbCliente tbCliente;
 
     @OneToOne//O item cdStatusPedido é FK
-    @JoinTable(name = "TB_STATUS_PEDIDO",
-            joinColumns = @JoinColumn(name = "ID_PEDIDO"),
-            inverseJoinColumns = @JoinColumn(name = "ID_CLIENTE")
-    )
+    @JoinColumn(name = "CD_STATUS_PEDIDO")
     private TbStatusPedidoEntity statusPedidoEntity;
 }

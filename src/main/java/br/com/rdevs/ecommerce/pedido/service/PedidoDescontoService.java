@@ -1,9 +1,12 @@
-package br.com.rdevs.ecommerce.pagamentopedido.service;
+package br.com.rdevs.ecommerce.pedido.service;
 
 import br.com.rdevs.ecommerce.pagamentopedido.model.dto.PedidoDescontoDTO;
 import br.com.rdevs.ecommerce.pagamentopedido.model.entity.TbPedidoDesconto;
 import br.com.rdevs.ecommerce.pagamentopedido.repository.PedidoDescontoRepository;
 import br.com.rdevs.ecommerce.pagamentopedido.service.bo.PedidoDescontoBO;
+import br.com.rdevs.ecommerce.pedido.model.dto.PedidoDescontoDTO;
+import br.com.rdevs.ecommerce.pedido.model.entity.TbPedidoDesconto;
+import br.com.rdevs.ecommerce.pedido.repository.PedidoDescontoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

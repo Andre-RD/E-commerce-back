@@ -1,4 +1,4 @@
-package br.com.rdevs.ecommerce.pagamentopedido.model.entity;
+package br.com.rdevs.ecommerce.pedido.model.entity;
 
 import lombok.Data;
 

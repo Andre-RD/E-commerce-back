@@ -1,6 +1,7 @@
-package br.com.rdevs.ecommerce.pagamentopedido.model.entity;
+package br.com.rdevs.ecommerce.pedido.model.entity;
 
 
+import br.com.rdevs.ecommerce.pagamentopedido.model.entity.TbTipoPagamento;
 import lombok.Data;
 
 import javax.persistence.*;
