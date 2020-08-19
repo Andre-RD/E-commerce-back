@@ -32,10 +32,8 @@ public class PedidoDescontoService {
         }
         return listDTO;
     }
-
     public PedidoDescontoDTO buscarporId(Long idPedido) {
         return pedidoDescontoBO.parseToDTO(repository.getOne(idPedido));
     }
-
 
 }

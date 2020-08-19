@@ -10,17 +10,13 @@ import java.util.List;
 
 @Service
 public class TbPedidoService {
-
+    //implementar inclusão, exclusão e consulta
     @Autowired
     private PedidoRepository repository;
 
     public List<TbPedidoEntity> buscarPedidos(){
         List<TbPedidoEntity> listEntity = repository.findAll();
         return listEntity;
-    }
+    }//ok
 
-    public Object buscaPorId(Integer codigo) {
-        List<TbPedidoEntity> listEntity = repository.findAll();
-        return listEntity;
     }
-}
