@@ -15,7 +15,7 @@ public class TbEndereco {
     @Column(name = "DS_ENDERECO")
     private String dsEndereco;
     @Column(name = "NR_ENDERECO")
-    private String nrEndeteco;
+    private String nrEndereco;
     @Column(name = "NR_CEP")
     private String nrCep;
     @Column(name = "DS_BAIRRO")

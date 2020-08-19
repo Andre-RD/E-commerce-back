@@ -1,9 +1,9 @@
 package br.com.rdevs.ecommerce.cadastro.model.entity;
 
+
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "TB_CARTAO_CREDITO")
@@ -18,8 +18,9 @@ public class TbCartaoCredito {
     @Column(name = "NM_NOME_TITULAR")
     private String nmNomeTitular;
 
-    @OneToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_CLIENTE")
-    private TbCliente cliente;
+    private TbCliente clienteCartao;
 
 }
