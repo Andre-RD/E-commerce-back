@@ -23,12 +23,15 @@ public class CadastroController {
 
 
     @GetMapping("/listaCadastros")
-    @RolesAllowed(value = "TESTE")
+    @RolesAllowed(value = "ADMIN")
     public ResponseEntity buscarCadastros(){
         return ResponseEntity.ok().body(service.buscarTodas());
     }
 
+
+
     @PostMapping("/listaCadastros")
+    @RolesAllowed(value = "ADMIN")
     public ResponseEntity<Object> salvarCadastro(@RequestBody ClienteDTO clienteDTO) throws Exception {
         ResultData resultData = null;
 
