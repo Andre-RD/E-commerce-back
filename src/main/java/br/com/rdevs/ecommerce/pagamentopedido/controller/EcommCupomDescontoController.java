@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EcommCupomDescontoController {
 
-    private EcommCupomDescontoService service;
-
-
-    public ResponseEntity<Object> listarTodas(){return ResponseEntity.ok().body(service.listarTodas()); }
+//    private EcommCupomDescontoService service;
+//
+//
+//    public ResponseEntity<Object> listarTodas(){return ResponseEntity.ok().body(service.listarTodas()); }
 
 }

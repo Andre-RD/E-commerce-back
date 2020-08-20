@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface CadastroRepository extends JpaRepository<TbCliente, Long> {
 
-    List<TbCliente> findByCpf(String cpf);
+    List<TbCliente> findByNrCpf(String nrCpf);
 
 }

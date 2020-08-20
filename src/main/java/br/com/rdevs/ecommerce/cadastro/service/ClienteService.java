@@ -61,7 +61,7 @@ public class ClienteService {
     }
 
     public List<TbCliente> buscarPorCpf(String cpf){
-        return cadastroRepository.findByCpf(cpf);
+        return cadastroRepository.findByNrCpf(cpf);
     }
 
 
@@ -85,14 +85,14 @@ public class ClienteService {
         return cadastroRepository.save(clienteEntity);
     }
 
-    public TbCliente atualiza(ClienteDTO clienteDTO){
-        TbCliente clienteEntity = cadastroRepository.getOne(clienteDTO.getIdCliente());
-        if(clienteEntity!= null){
-            clienteEntity = cadastroBO.parseToEntity()
-
-        }
-
-    }
+//    public TbCliente atualiza(ClienteDTO clienteDTO){
+//        TbCliente clienteEntity = cadastroRepository.getOne(clienteDTO.getIdCliente());
+//        if(clienteEntity!= null){
+//            clienteEntity = cadastroBO.parseToEntity()
+//
+//        }
+//
+//    }
 
 
 

@@ -1,6 +1,7 @@
 package br.com.rdevs.ecommerce.pagamentopedido.controller;
 
 import br.com.rdevs.ecommerce.pagamentopedido.service.PedidoDescontoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PedidoDescontoController {
 
+    @Autowired
     private PedidoDescontoService service;
 
     @GetMapping("/desconto")

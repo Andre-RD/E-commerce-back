@@ -1,6 +1,7 @@
 package br.com.rdevs.ecommerce.estoque.model.entity;
 
 
+import br.com.rdevs.ecommerce.produto.model.entity.TbProduto;
 import lombok.Data;
 
 import javax.persistence.*;

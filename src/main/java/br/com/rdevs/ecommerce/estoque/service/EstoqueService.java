@@ -4,9 +4,7 @@ package br.com.rdevs.ecommerce.estoque.service;
 import br.com.rdevs.ecommerce.estoque.model.dto.EstoqueDTO;
 import br.com.rdevs.ecommerce.estoque.model.dto.FilialDTO;
 import br.com.rdevs.ecommerce.estoque.model.entity.TbFilial;
-import br.com.rdevs.ecommerce.estoque.model.entity.TbProduto;
 import br.com.rdevs.ecommerce.estoque.model.entity.TbProdutoFilialEstoque;
-import br.com.rdevs.ecommerce.estoque.repository.EstoqueRepository;
 import br.com.rdevs.ecommerce.estoque.repository.FilialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,8 +41,8 @@ public class EstoqueService {
                 EstoqueDTO estDTO = new EstoqueDTO();
 
                 estDTO.setCdProduto(prod.getProduto().getCdProduto());
-                estDTO.setCdCategoria(prod.getProduto().getCdCategoria());
-                estDTO.setDsProduto(prod.getProduto().getDsProduto());
+                estDTO.setCdCategoria(prod.getProduto().getCategoriaProduto().getIdCategoriaProduto());
+                estDTO.setDsProduto(prod.getProduto().getNomeFantasia());
                 estDTO.setQtEstoque(prod.getQtEstoque());
                 estDTO.setQtEmpenho(prod.getQtEmpenho());
 

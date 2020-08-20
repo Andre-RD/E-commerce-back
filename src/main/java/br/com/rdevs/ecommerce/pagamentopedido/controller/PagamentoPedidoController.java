@@ -19,7 +19,7 @@ public class PagamentoPedidoController {
     }
 
 
-    @GetMapping("/pagamento/idPedido")
+    @GetMapping("/pagamento/{idPedido}")
     public ResponseEntity buscarPorId(@PathVariable ("idPedido") Long idPedido){
         return ResponseEntity.ok().body(service.buscarporId(idPedido));
     }

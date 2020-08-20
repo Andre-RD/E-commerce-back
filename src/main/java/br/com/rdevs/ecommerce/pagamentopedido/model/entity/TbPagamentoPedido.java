@@ -26,8 +26,7 @@ public class TbPagamentoPedido implements Serializable {
     @JoinColumn(name = "ID_TIPO_PAGAMENTO")
     private TbTipoPagamento idTipoPagamento;
 
-    @OneToOne
-    @JoinColumn(name = "NR_NUMERO_CARTAO")
+    @Column(name = "NR_NUMERO_CARTAO")
     private Long nrNumeroCartao;
 
     @Column(name = "NM_NOME_TITULAR")

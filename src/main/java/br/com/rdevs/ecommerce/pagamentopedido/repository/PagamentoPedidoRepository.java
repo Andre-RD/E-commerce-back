@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PagamentoPedidoRepository extends JpaRepository<TbPagamentoPedido, Long> {
-    List<TbPagamentoPedido> findByNome(String nmNomeTitular); // select da tabela onde nome for = ?
+    List<TbPagamentoPedido> findByNmNomeTitular(String nmNomeTitular); // select da tabela onde nome for = ?
 }
