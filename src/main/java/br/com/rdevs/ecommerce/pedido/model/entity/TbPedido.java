@@ -4,13 +4,13 @@ import br.com.rdevs.ecommerce.cadastro.model.entity.TbCliente;
 import lombok.Data;
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
 @Table(name = "TB_PEDIDO")
-public class TbPedidoEntity {
+public class TbPedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class TbPedidoEntity {
     private Date dtCompra;
 
     @Column(name = "VL_FRETE")
-    private BigDecimal vlCompra;
+    private BigDecimal vlFrete;
 
     @Column(name = "VL_TOTAL_PEDIDO")
     private BigDecimal vlTotalPedido;
@@ -29,17 +29,14 @@ public class TbPedidoEntity {
     @Column(name = "QT_ITENS_PEDIDO")
     private Integer qtItensPedido;
 
-    @Column(name = "TB_CLIENTE")
-    private Integer idCliente;
-
-    @Column(name = "TB_STATUS_PEDIDO")
-    private Integer cdStatusPedido;
-
-    @ManyToOne//O item idCliente é uma FK
+    @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")
-    private TbCliente tbCliente;
+    private TbCliente cliente;
 
-    @OneToOne//O item cdStatusPedido é FK
+    @OneToOne
     @JoinColumn(name = "CD_STATUS_PEDIDO")
-    private TbStatusPedidoEntity statusPedidoEntity;
+    private TbStatusPedido statusPedido;
+
+    @OneToMany(mappedBy = "pedido", cascade= CascadeType.ALL)
+    private List<TbPedidoItem> itens;
 }

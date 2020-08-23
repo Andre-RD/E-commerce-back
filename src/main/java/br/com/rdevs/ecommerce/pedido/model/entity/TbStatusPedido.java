@@ -8,11 +8,11 @@ import javax.persistence.*;
 @Data
 @Table(name = "TB_STATUS_PEDIDO")
 
-public class TbStatusPedidoEntity {
+public class TbStatusPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CD_STATUS_PEDIDO")
-    private Integer cdStatusPedido;
+    private Long cdStatusPedido;
 
     @Column(name = "DS_STATUS_PEDIDO")
     private String dsStatusPedido;
