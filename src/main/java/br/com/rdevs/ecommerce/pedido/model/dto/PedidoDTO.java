@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +17,7 @@ public class PedidoDTO {
     private BigDecimal vlCompra;
     private BigDecimal vlTotalPedido;
     private Integer qtItensPedido;
-    private Integer idCliente;
-    private Integer cdStatusPedido;
+    private Long idCliente;
+    private Long cdStatusPedido;
+    private List<PedidoItemDTO> items;
 }

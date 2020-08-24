@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StatusPedidoDTO {
-    private Integer cdStatusPedido;
+    private Long cdStatusPedido;
     private String dsStatusPedido;
 }

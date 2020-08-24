@@ -12,7 +12,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class PedidoItemDTO {
 
-    private Integer idPedido;
-    private Integer nrItemPedido;
+    private Long idPedido;
+    private Long nrItemPedido;
+    private Long cdProduto;
     private BigDecimal vlPedidoItem;
 }

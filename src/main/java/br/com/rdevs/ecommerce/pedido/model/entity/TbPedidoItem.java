@@ -1,5 +1,7 @@
 package br.com.rdevs.ecommerce.pedido.model.entity;
 
+import br.com.rdevs.ecommerce.produto.model.entity.TbProduto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -11,20 +13,21 @@ import java.math.BigDecimal;
 @Table(name = "TB_PEDIDO_ITEM")
 
 public class TbPedidoItem implements Serializable {
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_PEDIDO")
+    @JsonIgnore
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_PEDIDO")
-    private Integer idPedido;
+    private TbPedido pedido;
 
     @Id
     @Column(name = "NR_ITEM_PEDIDO")
-    private Integer nrItemPedido;
+    private Long nrItemPedido;
 
     @Column(name = "VL_PEDIDO_ITEM")
     private BigDecimal vlPedidoItem;
 
-        //Tabela do Gutemberg
-//    @OneToOne//O item cdProduto é FK
-//    @JoinColumn(name = "TB_PRODUTO")
-//    private Integer cdProduto;
+    @ManyToOne
+    @JoinColumn(name = "CD_PRODUTO")
+    private TbProduto produto;
 }
